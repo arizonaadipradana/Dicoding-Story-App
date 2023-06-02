@@ -12,10 +12,6 @@ import com.uberalles.dicodingstorysubmission.R
 import com.uberalles.dicodingstorysubmission.utils.Preferences
 
 class SplashFragment : Fragment() {
-    companion object {
-        private const val DURATION: Long = 3000
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +35,10 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(R.id.action_splashFragment_to_mainActivity)
             }, DURATION)
         }
+    }
+
+    companion object {
+        private const val DURATION: Long = 3000
     }
 
 }

@@ -8,12 +8,6 @@ import com.uberalles.dicodingstorysubmission.databinding.ActivityDetailBinding
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
 
-    companion object {
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_PHOTO_URL = "extra_photo"
-        const val EXTRA_DESCRIPTION = "extra_description"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,5 +24,11 @@ class DetailActivity : AppCompatActivity() {
             .skipMemoryCache(true)
             .into(binding.photoUrl)
         binding.description.text = description
+    }
+
+    companion object {
+        const val EXTRA_NAME = "extra_name"
+        const val EXTRA_PHOTO_URL = "extra_photo"
+        const val EXTRA_DESCRIPTION = "extra_description"
     }
 }

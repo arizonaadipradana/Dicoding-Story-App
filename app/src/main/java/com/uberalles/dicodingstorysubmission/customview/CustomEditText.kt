@@ -46,41 +46,42 @@ class CustomEditText : AppCompatEditText, View.OnTouchListener {
     private fun validateName(name: String) {
         this.inputType = android.text.InputType.TYPE_TEXT_VARIATION_PERSON_NAME
 
-        if (name.isEmpty()) {
+        isNameValid = if (name.isEmpty()){
             error = "Name must not be empty"
-            isNameValid = false
+            false
         } else {
-            setError(null)
-            isNameValid = true
+            error = null
+            true
         }
     }
 
     private fun validateEmail(email: String) {
         this.inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-        if (email.isEmpty()) {
+
+        isEmailValid = if (email.isEmpty()){
             error = "Email must not be empty"
-            isEmailValid = false
+            false
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             error = "Invalid email address"
-            isEmailValid = false
+            false
         } else {
             error = null
-            isEmailValid = true
+            true
         }
     }
 
     private fun validatePassword(password: String) {
         this.inputType = android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 
-        if (password.isEmpty()) {
+        isPasswordValid = if (password.isEmpty()) {
             error = "Password must not be empty"
-            isPasswordValid = false
+            false
         } else if (password.length < MIN_PASSWORD_LENGTH) {
             error = "Password must have at least $MIN_PASSWORD_LENGTH characters"
-            isPasswordValid = false
+            false
         } else {
             error = null
-            isPasswordValid = true
+            true
         }
     }
 

@@ -22,10 +22,6 @@ class SignUp : Fragment() {
 
     private lateinit var viewModel: AuthViewModel
 
-    companion object {
-        const val KEY_NAME = "name"
-    }
-
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
@@ -81,27 +77,6 @@ class SignUp : Fragment() {
         }
     }
 
-//    private fun edError() {
-//        binding.apply {
-//            edRegisterEmail.addTextChangedListener {
-//                if (it.toString().isEmpty()) {
-//                    edRegisterEmail.error = "Email is required"
-//                } else if (!Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches()) {
-//                    edRegisterEmail.error = "Email is not valid"
-//                } else {
-//                    edRegisterEmail.error = null
-//                }
-//            }
-//            edRegisterPassword.addTextChangedListener {
-//                if (it.toString().length < 8) {
-//                    edRegisterPassword.error = "Password must be at least 8 characters"
-//                } else {
-//                    edRegisterPassword.error = null
-//                }
-//            }
-//        }
-//    }
-
     private fun userSignUp() {
         binding.apply {
             btnSignUp.setOnClickListener { it ->
@@ -127,7 +102,8 @@ class SignUp : Fragment() {
                                 "Sign up successfully",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            findNavController().navigate(R.id.action_signUp_to_login)
+                            if(findNavController().currentDestination?.id == R.id.signUp)
+                                findNavController().navigate(R.id.action_signUp_to_login)
                         }
                     }
                 }
@@ -146,6 +122,10 @@ class SignUp : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        const val KEY_NAME = "name"
     }
 
 }

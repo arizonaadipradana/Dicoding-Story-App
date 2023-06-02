@@ -18,7 +18,6 @@ import com.uberalles.dicodingstorysubmission.ui.detail.DetailActivity
 
 class StoriesAdapter : PagingDataAdapter<Story, StoriesAdapter.ViewHolder>(DIFF_CALLBACK) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = CardViewBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -95,31 +94,3 @@ class StoriesAdapter : PagingDataAdapter<Story, StoriesAdapter.ViewHolder>(DIFF_
         }
     }
 }
-
-//class StoriesAdapter : RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
-//    private val stories = ArrayList<Story>()
-//
-//    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val name: TextView = view.findViewById(R.id.item_name)
-//        val description: TextView = view.findViewById(R.id.item_description)
-//        val photoUrl: ImageView = view.findViewById(R.id.item_photo)
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoriesAdapter.ViewHolder {
-//        val inflater = LayoutInflater.from(parent.context)
-//        return ViewHolder(inflater.inflate(R.layout.card_view, parent, false))
-//    }
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val listStory = stories[position]
-//
-//        holder.apply {
-//            name.text = listStory.name
-//            description.text = listStory.description
-//            photoUrl.setBackgroundResource(R.drawable.ic_launcher_background)
-//        }
-//    }
-//
-//    override fun getItemCount(): Int = stories.size
-//
-//}

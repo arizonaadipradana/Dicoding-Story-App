@@ -8,24 +8,6 @@ import com.uberalles.dicodingstorysubmission.ui.auth.AuthViewModel
 //    ViewModelProvider.NewInstanceFactory() {
 class ViewModelFactory(private val prefs: UserPrefs) : ViewModelProvider.NewInstanceFactory() {
 
-//    companion object {
-//        @Volatile
-//        private var instance: ViewModelFactory? = null
-//
-//        fun getInstance(context: Context): ViewModelFactory {
-//            return instance ?: synchronized(this) {
-//                instance ?: ViewModelFactory(context)
-//            }.also { instance = it }
-//        }
-//
-//        object Injection {
-//            fun provideRepository(context: Context): StoriesRepository {
-//                val apiService = ApiConfig.getApiService(context)
-//                return StoriesRepository(apiService)
-//            }
-//        }
-//    }
-
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {

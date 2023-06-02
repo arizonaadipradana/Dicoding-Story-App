@@ -23,10 +23,6 @@ import com.uberalles.dicodingstorysubmission.utils.dataStore
 
 class SignIn : Fragment() {
 
-    companion object {
-        const val KEY_NAME = "name"
-    }
-
     private lateinit var viewModel: AuthViewModel
 
     private var _binding: FragmentLoginBinding? = null
