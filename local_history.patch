@@ -1,0 +1,26 @@
+Index: app/src/main/java/com/uberalles/dicodingstorysubmission/ui/upload/UploadViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/uberalles/dicodingstorysubmission/ui/upload/UploadViewModel.kt b/app/src/main/java/com/uberalles/dicodingstorysubmission/ui/upload/UploadViewModel.kt
+--- a/app/src/main/java/com/uberalles/dicodingstorysubmission/ui/upload/UploadViewModel.kt	
++++ b/app/src/main/java/com/uberalles/dicodingstorysubmission/ui/upload/UploadViewModel.kt	(date 1685296247946)
+@@ -22,7 +22,7 @@
+     private val _uploadResponse = MutableLiveData<UploadResponse>()
+     val uploadResponse: LiveData<UploadResponse> = _uploadResponse
+ 
+-    fun upload(context: Context, image: File, description: String){
++    fun upload(context: Context, image: File, description: String) {
+         val storyDescription = description.toRequestBody("text/plain".toMediaType())
+         val requestImageFile = image.asRequestBody("image/jpeg".toMediaType())
+         val imageMultipart = MultipartBody.Part.createFormData(
+@@ -50,6 +50,6 @@
+                 _isLoading.value = false
+                 _error.value = t.message
+             }
+-        }
++        })
+     }
+ }
+\ No newline at end of file
