@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3EEEE"
+    android:background="#9F8EB6"
     tools:context=".ui.main.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,8 +37,8 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/action_popup"
-        app:layout_constraintEnd_toEndOf="@id/action_popup"
+        app:layout_constraintBottom_toTopOf="@id/action_logout"
+        app:layout_constraintEnd_toEndOf="@id/action_logout"
         app:srcCompat="@drawable/ic_camera"
         tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="563dp" />
@@ -51,9 +51,23 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/action_popup"
+        app:layout_constraintEnd_toEndOf="@id/action_popup"
+        app:srcCompat="@drawable/ic_log_out"
+        tools:layout_editor_absoluteX="283dp"
+        tools:layout_editor_absoluteY="563dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/action_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/action_camera"
         app:layout_constraintEnd_toEndOf="@id/action_camera"
-        app:srcCompat="@drawable/ic_log_out"
+        app:srcCompat="@drawable/ic_map"
         tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="563dp" />
 

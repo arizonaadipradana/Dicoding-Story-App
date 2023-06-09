@@ -43,11 +43,10 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody,
     ): Call<UploadResponse>
-//
-//    @GET("stories")
-//    suspend fun getStoriesWithLocation(
-//        @Query("location") location: Int,
-//    ) : StoriesResponse
-//
+
+    @GET("stories")
+    fun getLocation(
+        @Query("location") location: Int
+    ): Call<StoriesResponse>
 
 }

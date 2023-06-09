@@ -16,6 +16,7 @@ import com.uberalles.dicodingstorysubmission.adapter.StoriesAdapter
 import com.uberalles.dicodingstorysubmission.databinding.ActivityMainBinding
 import com.uberalles.dicodingstorysubmission.ui.auth.AuthActivity
 import com.uberalles.dicodingstorysubmission.ui.auth.AuthViewModel
+import com.uberalles.dicodingstorysubmission.ui.googlemaps.GoogleMapsActivity
 import com.uberalles.dicodingstorysubmission.ui.upload.UploadActivity
 import com.uberalles.dicodingstorysubmission.utils.Preferences
 import com.uberalles.dicodingstorysubmission.utils.UserPrefs
@@ -26,9 +27,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var alertBuilder: AlertDialog.Builder
     private lateinit var adapter: StoriesAdapter
+
     private val viewModel: StoriesViewModel by viewModels {
         StoriesViewModelFactory(this)
     }
+
     private lateinit var authViewModel: AuthViewModel
 
     private val rotateOpen: Animation by lazy {
@@ -84,9 +87,6 @@ class MainActivity : AppCompatActivity() {
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         binding.rvStories.addItemDecoration(itemDecoration)
 
-//        binding.rvStories.layoutManager =
-//            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
     }
 
 
@@ -100,6 +100,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.actionLogout.setOnClickListener {
             dialogLogOut()
+        }
+        binding.actionMap.setOnClickListener {
+            val intent = Intent(this, GoogleMapsActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -115,13 +119,8 @@ class MainActivity : AppCompatActivity() {
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 finish()
-//                Preferences.logOut(this)
-//                val intent = Intent(this, AuthActivity::class.java)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-//                startActivity(intent)
-//                finish()
             }
-            .setNegativeButton("No") { dialogInterface, it ->
+            .setNegativeButton("No") { dialogInterface, _ ->
                 dialogInterface.cancel()
             }
             .show()
@@ -131,9 +130,11 @@ class MainActivity : AppCompatActivity() {
         if (!clicked) {
             binding.actionCamera.visibility = View.VISIBLE
             binding.actionLogout.visibility = View.VISIBLE
+            binding.actionMap.visibility = View.VISIBLE
         } else {
             binding.actionCamera.visibility = View.INVISIBLE
             binding.actionLogout.visibility = View.INVISIBLE
+            binding.actionMap.visibility = View.INVISIBLE
         }
     }
 
@@ -148,10 +149,12 @@ class MainActivity : AppCompatActivity() {
             binding.actionPopup.startAnimation(rotateOpen)
             binding.actionCamera.startAnimation(fromBottom)
             binding.actionLogout.startAnimation(fromBottom)
+            binding.actionMap.startAnimation(fromBottom)
         } else {
             binding.actionPopup.startAnimation(rotateClose)
             binding.actionCamera.startAnimation(toBottom)
             binding.actionLogout.startAnimation(toBottom)
+            binding.actionMap.startAnimation(toBottom)
         }
     }
 

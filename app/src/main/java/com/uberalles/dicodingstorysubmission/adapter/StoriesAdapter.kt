@@ -15,7 +15,6 @@ import com.uberalles.dicodingstorysubmission.databinding.CardViewBinding
 import com.uberalles.dicodingstorysubmission.repos.Story
 import com.uberalles.dicodingstorysubmission.ui.detail.DetailActivity
 
-
 class StoriesAdapter : PagingDataAdapter<Story, StoriesAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

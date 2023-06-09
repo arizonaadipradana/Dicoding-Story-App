@@ -20,16 +20,6 @@ object Preferences {
         editor.apply()
     }
 
-    //fun get userid from shared preferences
-    fun getUserId(context: Context): String? {
-        val sharedPref = context.getSharedPreferences("onSignIn", Context.MODE_PRIVATE)
-        return sharedPref.getString("userId", null)
-    }
-
-//    fun getToken(context: Context): String? {
-//        val sharedPref = context.getSharedPreferences("onSignIn", Context.MODE_PRIVATE)
-//        return sharedPref.getString("token", null)
-//    }
 
     fun logOut(context: Context) {
         val editor = editorPreference(context, "onSignIn")

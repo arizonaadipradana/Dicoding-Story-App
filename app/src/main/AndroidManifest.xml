@@ -4,6 +4,8 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -21,6 +23,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DicodingStorySubmission"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBLU-OgIXB2RGkMtLwzqLobq3rT2OdBMkg" />
+
+        <activity
+            android:name=".ui.googlemaps.GoogleMapsActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.upload.UploadActivity"
             android:exported="false" />
